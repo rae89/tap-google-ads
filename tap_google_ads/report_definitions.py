@@ -389,6 +389,7 @@ AD_PERFORMANCE_REPORT_FIELDS = [
     "segments.year",
 ]
 AGE_RANGE_PERFORMANCE_REPORT_FIELDS = [
+    "age_range_view.resource_name"
     "ad_group.base_ad_group",
     "ad_group.id",
     "ad_group.name",
@@ -414,6 +415,7 @@ AGE_RANGE_PERFORMANCE_REPORT_FIELDS = [
     "campaign.id",
     "campaign.name",
     "campaign.status",
+    "campaign.advertising_channel_type"
     "customer.currency_code",
     "customer.descriptive_name",
     "customer.descriptive_name",
