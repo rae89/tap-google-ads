@@ -1132,7 +1132,6 @@ GEO_PERFORMANCE_REPORT_FIELDS = [
     "ad_group.id",
     "ad_group.name",
     "ad_group.status",
-    "geo_target_constant.name",
     "campaign_criterion.location.geo_target_constant",
     "campaign.id",
     "campaign.labels",
