@@ -1038,6 +1038,7 @@ EXPANDED_LANDING_PAGE_REPORT_FIELDS = [
     "segments.year",
 ]
 GENDER_PERFORMANCE_REPORT_FIELDS = [
+    "gender_view.resource_name",
     "ad_group.base_ad_group",
     "ad_group.id",
     "ad_group.name",
@@ -1058,6 +1059,7 @@ GENDER_PERFORMANCE_REPORT_FIELDS = [
     "ad_group_criterion.url_custom_parameters",
     "bidding_strategy.name",
     "bidding_strategy.type",
+    "campaign.advertising_channel_type",
     "campaign.base_campaign",
     "campaign.bidding_strategy",
     "campaign.id",
@@ -1130,6 +1132,8 @@ GEO_PERFORMANCE_REPORT_FIELDS = [
     "ad_group.id",
     "ad_group.name",
     "ad_group.status",
+    "geo_target_constant.name",
+    "campaign_criterion.location.geo_target_constant",
     "campaign.id",
     "campaign.labels",
     "campaign.name",
