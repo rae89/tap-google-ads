@@ -1179,6 +1179,6 @@ def initialize_reports(resource_schema):
             ["location_view"],
             resource_schema,
             ["_sdc_record_hash"],
-            {"location_view.resource_name_resource_name"},
+            {"location_view.resource_name"},
         )
     }

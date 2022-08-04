@@ -1898,5 +1898,6 @@ LOCATION_PERFORMANCE_REPORT_FIELDS = [
     "metrics.cost_micros",
     "metrics.ctr",
     "metrics.impressions",
-    "segments.date"
+    "segments.date",
+    "location_view.resource_name"
 ]
