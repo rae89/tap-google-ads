@@ -1897,6 +1897,6 @@ LOCATION_PERFORMANCE_REPORT_FIELDS = [
     "metrics.clicks",
     "metrics.cost_micros",
     "metrics.ctr",
-    "metrics.impressoins",
+    "metrics.impressions",
     "segments.date"
 ]
