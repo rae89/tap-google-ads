@@ -954,14 +954,14 @@ def initialize_core_streams(resource_schema):
             {"customer_id"},
             filter_param="user_list.id"
         ),
-        "geo_target_constant": BaseStream(
-            report_definitions.GEO_TARGET_CONSTANT_FIELDS,
-            ["geo_target_constant"],
-            resource_schema,
-            ["id"],
-            {"id", "name"},
-            filter_param="geo_target_constant.id"
-        ),
+        # "geo_target_constant": BaseStream(
+        #     report_definitions.GEO_TARGET_CONSTANT_FIELDS,
+        #     ["geo_target_constant"],
+        #     resource_schema,
+        #     ["id"],
+        #     {"id", "name"},
+        #     filter_param="geo_target_constant.id"
+        # ),
     }
 
 
