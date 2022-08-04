@@ -1174,8 +1174,8 @@ def initialize_reports(resource_schema):
             ["_sdc_record_hash"],
             {"video_id"},
         ),
-        "campaign_location_performance_report": ReportStream(
-            report_definitions.CAMPAIGN_LOCATION_PERFORMANCE_REPORT_FIELDS,
+        "location_performance_report": ReportStream(
+            report_definitions.LOCATION_PERFORMANCE_REPORT_FIELDS,
             ["location_view"],
             resource_schema,
             ["_sdc_record_hash"],

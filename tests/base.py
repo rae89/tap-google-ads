@@ -403,6 +403,12 @@ class GoogleAdsBase(unittest.TestCase):
                 self.REPLICATION_KEYS: {"date"},
                 self.AUTOMATIC_KEYS: {"video_id"},
             },
+            "location_performance_report": {  # "location_view"
+                self.PRIMARY_KEYS: {"_sdc_record_hash"},
+                self.REPLICATION_METHOD: self.INCREMENTAL,
+                self.REPLICATION_KEYS: {"date"},
+                self.AUTOMATIC_KEYS: {"location_view_resource_name"},
+            }
 
             # Custom Reports TODO Post Beta feature
         }
@@ -863,7 +869,7 @@ class GoogleAdsBase(unittest.TestCase):
                 'click_type',
                 'clicks',
                 'interactions',
-            },
+            }
         }
     def assertIsDateFormat(self, value, str_format):
         """
