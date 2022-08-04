@@ -1890,3 +1890,13 @@ VIDEO_PERFORMANCE_REPORT_FIELDS = [
     "video.id",
     "video.title",
 ]
+CAMPAIGN_LOCATION_PERFORMANCE_REPORT_FIELDS = [
+    "campaign_criterion.location.geo_target_constant",
+    "customer.id",
+    "metrics.average_cpc",
+    "metrics.clicks",
+    "metrics.cost_micros",
+    "metrics.ctr",
+    "metrics.impressoins",
+    "segments.date"
+]
