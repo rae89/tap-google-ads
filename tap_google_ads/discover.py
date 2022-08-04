@@ -51,7 +51,8 @@ STREAMS = [
     "user_list",
     "user_location_view",
     "video",
-    "geo_target_constant"
+    "geo_target_constant",
+    "location_view"
 ]
 
 CATEGORY_MAP = {
