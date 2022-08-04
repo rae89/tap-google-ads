@@ -869,12 +869,12 @@ class GoogleAdsBase(unittest.TestCase):
                 'click_type',
                 'clicks',
                 'interactions',
-            },
-            'location_performance_report': {
-                'campaign_criterion_location',
-                'clicks',
-                'impressions',
-            },
+            }
+            # 'location_performance_report': {
+            #     'campaign_criterion_location',
+            #     'clicks',
+            #     'impressions',
+            # },
         }
     def assertIsDateFormat(self, value, str_format):
         """

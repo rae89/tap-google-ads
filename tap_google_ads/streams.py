@@ -1173,12 +1173,12 @@ def initialize_reports(resource_schema):
             resource_schema,
             ["_sdc_record_hash"],
             {"video_id"},
-        ),
-        "location_performance_report": ReportStream(
-            report_definitions.LOCATION_PERFORMANCE_REPORT_FIELDS,
-            ["location_view"],
-            resource_schema,
-            ["_sdc_record_hash"],
-            {"location_view.resource_name"},
         )
+        # "location_performance_report": ReportStream(
+        #     report_definitions.LOCATION_PERFORMANCE_REPORT_FIELDS,
+        #     ["location_view"],
+        #     resource_schema,
+        #     ["_sdc_record_hash"],
+        #     {"location_view.resource_name"},
+        # )
     }
