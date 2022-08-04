@@ -959,7 +959,7 @@ def initialize_core_streams(resource_schema):
             ["geo_target_constant"],
             resource_schema,
             ["id"],
-            {"customer_id"},
+            {"id", "name"},
             filter_param="geo_target_constant.id"
         ),
     }
