@@ -956,11 +956,11 @@ def initialize_core_streams(resource_schema):
         ),
         "geo_target_constant": BaseStream(
             report_definitions.GEO_TARGET_CONSTANT_FIELDS,
-            ["get_target_constant"],
+            ["geo_target_constant"],
             resource_schema,
             ["id"],
             {"customer_id"},
-            filter_param="get_target_constant.id"
+            filter_param="geo_target_constant.id"
         ),
     }
 
