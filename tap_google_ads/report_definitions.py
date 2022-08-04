@@ -21,6 +21,7 @@ OPERATING_SYSTEM_VERSION_CONSTANT_FIELDS = []
 TOPIC_CONSTANT_FIELDS = []
 USER_INTEREST_FIELDS = []
 USER_LIST_FIELDS = []
+GEO_TARGET_CONSTANT_FIELDS = []
 
 # Report streams
 ACCOUNT_PERFORMANCE_REPORT_FIELDS = [
@@ -1132,7 +1133,6 @@ GEO_PERFORMANCE_REPORT_FIELDS = [
     "ad_group.id",
     "ad_group.name",
     "ad_group.status",
-    "geo_target_constant.name",
     "campaign.id",
     "campaign.labels",
     "campaign.name",

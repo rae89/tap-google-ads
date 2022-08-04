@@ -954,6 +954,14 @@ def initialize_core_streams(resource_schema):
             {"customer_id"},
             filter_param="user_list.id"
         ),
+        "geo_target_constant": BaseStream(
+            report_definitions.GEO_TARGET_CONSTANT_FIELDS,
+            ["get_target_constant"],
+            resource_schema,
+            ["id"],
+            {"customer_id"},
+            filter_param="get_target_constant.id"
+        ),
     }
 
 
@@ -1165,5 +1173,5 @@ def initialize_reports(resource_schema):
             resource_schema,
             ["_sdc_record_hash"],
             {"video_id"},
-        ),
+        )
     }
