@@ -754,7 +754,7 @@ class ReportStream(BaseStream):
                     transformed_message = self.transform_keys(json_message)
                     record = transformer.transform(transformed_message, stream["schema"])
                     record["_sdc_record_hash"] = generate_hash(record, stream_mdata)
-
+ 
                     singer.write_record(stream_name, record)
 
             new_bookmark_value = {replication_key: utils.strftime(query_date)}
@@ -1173,12 +1173,12 @@ def initialize_reports(resource_schema):
             resource_schema,
             ["_sdc_record_hash"],
             {"video_id"},
+        ),
+        "location_performance_report": ReportStream(
+            report_definitions.LOCATION_PERFORMANCE_REPORT_FIELDS,
+            ["location_view"],
+            resource_schema,
+            ["_sdc_record_hash"],
+            {"location_view.resource_name"},
         )
-        # "location_performance_report": ReportStream(
-        #     report_definitions.LOCATION_PERFORMANCE_REPORT_FIELDS,
-        #     ["location_view"],
-        #     resource_schema,
-        #     ["_sdc_record_hash"],
-        #     {"location_view.resource_name"},
-        # )
     }
