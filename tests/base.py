@@ -83,14 +83,6 @@ class GoogleAdsBase(unittest.TestCase):
         """
         return {
             # Core Objects
-            "ad_groups": {
-                self.PRIMARY_KEYS: {"id"},
-                self.REPLICATION_METHOD: self.FULL_TABLE,
-                self.AUTOMATIC_KEYS: {
-                    "campaign_id",
-                    "customer_id",
-                },
-            },
             "ads": {
                 self.PRIMARY_KEYS: {"id"},
                 self.REPLICATION_METHOD: self.FULL_TABLE,
