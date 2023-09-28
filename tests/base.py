@@ -97,11 +97,6 @@ class GoogleAdsBase(unittest.TestCase):
                 self.REPLICATION_METHOD: self.FULL_TABLE,
                 self.AUTOMATIC_KEYS: {"customer_id"},
             },
-            "campaign_budgets": {
-                self.PRIMARY_KEYS: {"id"},
-                self.REPLICATION_METHOD: self.FULL_TABLE,
-                self.AUTOMATIC_KEYS: {"customer_id"},
-            },
             "campaign_criterion": {
                 self.PRIMARY_KEYS: {"campaign_id", "criterion_id"},
                 self.REPLICATION_METHOD: self.FULL_TABLE,

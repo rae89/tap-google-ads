@@ -786,14 +786,6 @@ def initialize_core_streams(resource_schema):
             {"customer_id"},
             filter_param="campaign.id"
         ),
-        "campaign_budgets": BaseStream(
-            report_definitions.CAMPAIGN_BUDGET_FIELDS,
-            ["campaign_budget"],
-            resource_schema,
-            ["id"],
-            {"customer_id"},
-            filter_param="campaign_budget.id"
-        ),
         "campaign_criterion": BaseStream(
             report_definitions.CAMPAIGN_CRITERION_FIELDS,
             ["campaign_criterion"],
