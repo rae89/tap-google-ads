@@ -83,11 +83,6 @@ class GoogleAdsBase(unittest.TestCase):
         """
         return {
             # Core Objects
-            "bidding_strategies": {
-                self.PRIMARY_KEYS:{"id"},
-                self.REPLICATION_METHOD: self.FULL_TABLE,
-                self.AUTOMATIC_KEYS: {"customer_id"},
-            },
             "call_details": {
                 self.PRIMARY_KEYS: {"resource_name"},
                 self.REPLICATION_METHOD: self.FULL_TABLE,

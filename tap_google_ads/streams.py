@@ -767,14 +767,6 @@ class ReportStream(BaseStream):
 
 def initialize_core_streams(resource_schema):
     return {
-        "bidding_strategies": BaseStream(
-            report_definitions.BIDDING_STRATEGY_FIELDS,
-            ["bidding_strategy"],
-            resource_schema,
-            ["id"],
-            {"customer_id"},
-            filter_param="bidding_strategy.id"
-        ),
         "call_details": BaseStream(
             report_definitions.CALL_VIEW_FIELDS,
             ["call_view"],

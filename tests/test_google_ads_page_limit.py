@@ -24,8 +24,8 @@ class TesGoogleAdstPagination(GoogleAdsBase):
         # LIMIT parameter is not availble for call_details, campaign_labels, campaign_criterion
         streams_to_test = streams_to_test - {'call_details', 'campaign_labels', 'campaign_criterion'}
         
-        # We do not have enough records for bidding_strategies, feed, and user_list streams.
-        streams_to_test = streams_to_test - {'bidding_strategies', 'feed', 'user_list'}
+        # We do not have enough records for feed, and user_list streams.
+        streams_to_test = streams_to_test - {'feed', 'user_list'}
 
         # Create connection
         conn_id = connections.ensure_connection(self)
