@@ -85,7 +85,6 @@ class AutomaticFieldsGoogleAds(GoogleAdsBase):
                                    'display_keyword_performance_report',  # Singer Display #2, Ad Group 2
                                    'display_topics_performance_report',  # Singer Display #2, Ad Group 2
                                    # audiences are unclear on how metrics fall into segments
-                                   'ad_group_audience_performance_report',  # Singer Display #2/Singer Display, Ad Group 2 (maybe?)
                                    'campaign_audience_performance_report',  # Singer Display #2/Singer Display, Ad Group 2 (maybe?)
                                    # cannot generate test data
                                    "call_details", # need test call data before data will be returned

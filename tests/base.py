@@ -210,15 +210,6 @@ class GoogleAdsBase(unittest.TestCase):
             # These are fields that are inherently used by Google for each respective resource to aggregate metrics
             # shopping_performance_report's automatic_keys are currently unknown, and thus are temporarily empty
 
-            "ad_group_audience_performance_report": {  # ad_group_audience_view
-                self.PRIMARY_KEYS: {"_sdc_record_hash"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-                self.AUTOMATIC_KEYS: {
-                    "ad_group_criterion_criterion_id",
-                    "ad_group_id",
-                },
-            },
             "ad_group_performance_report": {  # ad_group
                 self.PRIMARY_KEYS: {"_sdc_record_hash"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,
@@ -678,9 +669,6 @@ class GoogleAdsBase(unittest.TestCase):
                 'customer_id',  # Customer ID,
                 'impressions',  # Impr.,
                 'view_through_conversions',  # View-through conv.,
-            },
-            "ad_group_audience_performance_report": {
-                'ad_group_name',
             },
             "campaign_performance_report": {
                 'average_cpc',  # Avg. CPC,

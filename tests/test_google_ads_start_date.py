@@ -148,7 +148,6 @@ class StartDateTest(GoogleAdsBase):
 class StartDateTest1(StartDateTest):
 
     missing_coverage_streams = { # no test data available
-        'ad_group_audience_performance_report',
         'call_details',
         'campaign_audience_performance_report',
         'click_performance_report',  # only last 90 days returned

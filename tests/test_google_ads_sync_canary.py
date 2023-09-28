@@ -86,7 +86,6 @@ class SyncCanaryTest(GoogleAdsBase):
             "display_topics_performance_report",  # Singer Display #2, Ad Group 2
             "keywords_performance_report",  # needs a Search Campaign (currently have none)
             # audiences are unclear on how metrics fall into segments
-            "ad_group_audience_performance_report",  # Singer Display #2/Singer Display, Ad Group 2 (maybe?)
             "campaign_audience_performance_report",  # Singer Display #2/Singer Display, Ad Group 2 (maybe?)
             # cannot generate test data
             "placement_performance_report",  # need an app to run javascript to trace conversions

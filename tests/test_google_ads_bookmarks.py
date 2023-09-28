@@ -47,7 +47,6 @@ class BookmarksTest(GoogleAdsBase):
         conn_id = connections.ensure_connection(self)
 
         streams_under_test = self.expected_streams() - {
-            'ad_group_audience_performance_report',
             'call_details', # need test call data before data will be returned
             'campaign_audience_performance_report',
             'click_performance_report',  # only last 90 days returned
