@@ -60,10 +60,6 @@ class GoogleAdsBase(unittest.TestCase):
 
         return {
             # Core Objects
-            "Accounts": {
-                self.PRIMARY_KEYS: {"TODO"},
-                self.REPLICATION_METHOD: self.FULL,
-            },
             "Campaigns": {
                 self.PRIMARY_KEYS: {"TODO"},
                 self.REPLICATION_METHOD: self.FULL,

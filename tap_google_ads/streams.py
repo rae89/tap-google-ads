@@ -767,13 +767,6 @@ class ReportStream(BaseStream):
 
 def initialize_core_streams(resource_schema):
     return {
-        "accounts": BaseStream(
-            report_definitions.ACCOUNT_FIELDS,
-            ["customer"],
-            resource_schema,
-            ["id"],
-            filter_param="customer.id"
-        ),
         "ad_groups": BaseStream(
             report_definitions.AD_GROUP_FIELDS,
             ["ad_group"],
