@@ -95,7 +95,6 @@ class BookmarksTest(GoogleAdsBase):
             'age_range_performance_report': data_set_state_value_1,
             'campaign_performance_report': data_set_state_value_1,
             'placeholder_report': data_set_state_value_2,
-            'ad_performance_report': data_set_state_value_1,
             'expanded_landing_page_report': data_set_state_value_1,
             'keywordless_query_report': data_set_state_value_1,
             'landing_page_report': data_set_state_value_1,

@@ -930,13 +930,6 @@ def initialize_core_streams(resource_schema):
 
 def initialize_reports(resource_schema):
     return {
-        "ad_performance_report": ReportStream(
-            report_definitions.AD_PERFORMANCE_REPORT_FIELDS,
-            ["ad_group_ad"],
-            resource_schema,
-            ["_sdc_record_hash"],
-            {"id"},
-        ),
         "age_range_performance_report": ReportStream(
             report_definitions.AGE_RANGE_PERFORMANCE_REPORT_FIELDS,
             ["age_range_view"],

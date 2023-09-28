@@ -194,12 +194,6 @@ class GoogleAdsBase(unittest.TestCase):
             # These are fields that are inherently used by Google for each respective resource to aggregate metrics
             # shopping_performance_report's automatic_keys are currently unknown, and thus are temporarily empty
 
-            "ad_performance_report": {  # ads
-                self.PRIMARY_KEYS: {"_sdc_record_hash"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-                self.AUTOMATIC_KEYS: {"id"},
-            },
             "age_range_performance_report": {  # "age_range_view"
                 self.PRIMARY_KEYS: {"_sdc_record_hash"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,
@@ -628,16 +622,6 @@ class GoogleAdsBase(unittest.TestCase):
         returns a dictionary of reports to standard fields
         """
         return {
-            'ad_performance_report': {
-                'average_cpc',  # 'Avg. CPC',
-                'clicks',  # 'Clicks',
-                'conversions',  # 'Conversions',
-                'cost_per_conversion',  # 'Cost / conv.',
-                'ctr',  # 'CTR',
-                'customer_id',  # 'Customer ID',
-                'impressions',  # 'Impr.',
-                'view_through_conversions',  # 'View-through conv.',
-            },
             "campaign_performance_report": {
                 'average_cpc',  # Avg. CPC,
                 'clicks',  # Clicks,

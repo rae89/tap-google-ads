@@ -15,7 +15,6 @@ class FieldExclusion1(FieldExclusionGoogleAdsBase):
         return "tt_google_ads_exclusion_1"
 
     streams_to_test = {
-        "ad_performance_report",
         "age_range_performance_report",
         "campaign_audience_performance_report",
      }
