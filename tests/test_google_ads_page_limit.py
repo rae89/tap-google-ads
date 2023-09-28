@@ -21,8 +21,8 @@ class TesGoogleAdstPagination(GoogleAdsBase):
         streams_to_test = {stream for stream in self.expected_streams()
                           if not self.is_report(stream)}
 
-        # LIMIT parameter is not availble for call_details, campaign_labels, campaign_criterion, ad_group_criterion
-        streams_to_test = streams_to_test - {'ad_group_criterion', 'call_details', 'campaign_labels', 'campaign_criterion'}
+        # LIMIT parameter is not availble for call_details, campaign_labels, campaign_criterion
+        streams_to_test = streams_to_test - {'call_details', 'campaign_labels', 'campaign_criterion'}
         
         # We do not have enough records for bidding_strategies, feed, and user_list streams.
         streams_to_test = streams_to_test - {'bidding_strategies', 'feed', 'user_list'}

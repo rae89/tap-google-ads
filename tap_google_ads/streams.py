@@ -438,13 +438,13 @@ class BaseStream:  # pylint: disable=too-many-instance-attributes
         # Assign True if the primary key is composite.
         composite_pks = len(self.primary_keys) > 1
 
-        # LIMIT clause in the `ad_group_criterion` and `campaign_criterion`(stream which has composite primary keys) may result in the infinite loop.
+        # LIMIT clause in the `campaign_criterion`(stream which has composite primary keys) may result in the infinite loop.
         # For example, the limit is 10. campaign_criterion stream have total 20 records with campaign_id = 1.
         # So, in the first call, the tap retrieves 10 records and the next time query would look like the below,
         # WHERE campaign_id >= 1
         # Now, the tap will again fetch records with campaign_id = 1.
         # That's why we should not pass the LIMIT clause in the query of these streams.
-        limit_not_possible = ["ad_group_criterion", "campaign_criterion"]
+        limit_not_possible = ["campaign_criterion"]
 
         # Set limit for the stream which supports filter parameter(WHERE clause) and do not belong to limit_not_possible category.
         if self.filter_param and stream_name not in limit_not_possible:
@@ -776,17 +776,6 @@ def initialize_core_streams(resource_schema):
                 "campaign_id",
                 "customer_id",
              },
-            filter_param="ad_group.id"
-        ),
-        "ad_group_criterion": BaseStream(
-            report_definitions.AD_GROUP_CRITERION_FIELDS,
-            ["ad_group_criterion"],
-            resource_schema,
-            ["ad_group_id","criterion_id"],
-            {
-                "campaign_id",
-                "customer_id",
-            },
             filter_param="ad_group.id"
         ),
         "ads": BaseStream(

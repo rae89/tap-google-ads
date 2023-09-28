@@ -91,14 +91,6 @@ class GoogleAdsBase(unittest.TestCase):
                     "customer_id",
                 },
             },
-            "ad_group_criterion": {
-                self.PRIMARY_KEYS: {"ad_group_id", "criterion_id"},
-                self.REPLICATION_METHOD: self.FULL_TABLE,
-                self.AUTOMATIC_KEYS: {
-                    "campaign_id",
-                    "customer_id",
-                },
-            },
             "ads": {
                 self.PRIMARY_KEYS: {"id"},
                 self.REPLICATION_METHOD: self.FULL_TABLE,
