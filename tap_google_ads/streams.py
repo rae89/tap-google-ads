@@ -767,18 +767,6 @@ class ReportStream(BaseStream):
 
 def initialize_core_streams(resource_schema):
     return {
-        "ads": BaseStream(
-            report_definitions.AD_GROUP_AD_FIELDS,
-            ["ad_group_ad"],
-            resource_schema,
-            ["id"],
-            {
-                "ad_group_id",
-                "campaign_id",
-                "customer_id",
-             },
-            filter_param = "ad_group_ad.ad.id"
-        ),
         "bidding_strategies": BaseStream(
             report_definitions.BIDDING_STRATEGY_FIELDS,
             ["bidding_strategy"],

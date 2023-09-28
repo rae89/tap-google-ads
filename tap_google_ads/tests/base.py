@@ -68,10 +68,6 @@ class GoogleAdsBase(unittest.TestCase):
                 self.PRIMARY_KEYS: {"TODO"},
                 self.REPLICATION_METHOD: self.FULL,
             },
-            "Ads": {
-                self.PRIMARY_KEYS: {"TODO"},
-                self.REPLICATION_METHOD: self.FULL,
-            },
             # Standard Reports
             "ADGROUP_PERFORMANCE_REPORT": {
                 self.PRIMARY_KEYS: {"TODO"},
