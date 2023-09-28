@@ -180,15 +180,6 @@ class GoogleAdsBase(unittest.TestCase):
             # These are fields that are inherently used by Google for each respective resource to aggregate metrics
             # shopping_performance_report's automatic_keys are currently unknown, and thus are temporarily empty
 
-            "campaign_audience_performance_report": {  # "campaign_audience_view"
-                self.PRIMARY_KEYS: {"_sdc_record_hash"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-                self.AUTOMATIC_KEYS: {
-                    "campaign_id",
-                    "campaign_criterion_criterion_id",
-                },
-            },
             "campaign_performance_report": {  # "campaign"
                 self.PRIMARY_KEYS: {"_sdc_record_hash"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,
@@ -736,12 +727,6 @@ class GoogleAdsBase(unittest.TestCase):
                 'average_cpc',
                 'expanded_landing_page_view_expanded_final_url',
             },
-            'campaign_audience_performance_report': {
-                'campaign_name',
-                'click_type',
-                'clicks',
-                'interactions',
-            }
         }
     def assertIsDateFormat(self, value, str_format):
         """

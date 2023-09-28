@@ -48,7 +48,6 @@ class BookmarksTest(GoogleAdsBase):
 
         streams_under_test = self.expected_streams() - {
             'call_details', # need test call data before data will be returned
-            'campaign_audience_performance_report',
             'click_performance_report',  # only last 90 days returned
             'display_keyword_performance_report',
             'display_topics_performance_report',

@@ -917,16 +917,6 @@ def initialize_reports(resource_schema):
             ["_sdc_record_hash"],
             {"campaign_id"},
         ),
-        "campaign_audience_performance_report": ReportStream(
-            report_definitions.CAMPAIGN_AUDIENCE_PERFORMANCE_REPORT_FIELDS,
-            ["campaign_audience_view"],
-            resource_schema,
-            ["_sdc_record_hash"],
-            {
-                "campaign_id",
-                "campaign_criterion_criterion_id",
-            },
-        ),
         "click_performance_report": ReportStream(
             report_definitions.CLICK_PERFORMANCE_REPORT_FIELDS,
             ["click_view"],

@@ -149,7 +149,6 @@ class StartDateTest1(StartDateTest):
 
     missing_coverage_streams = { # no test data available
         'call_details',
-        'campaign_audience_performance_report',
         'click_performance_report',  # only last 90 days returned
         'display_keyword_performance_report',
         'display_topics_performance_report',
