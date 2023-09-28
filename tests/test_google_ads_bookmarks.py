@@ -89,7 +89,6 @@ class BookmarksTest(GoogleAdsBase):
         data_set_state_value_1 = '2022-01-24T00:00:00.000000Z'
         data_set_state_value_2 = '2021-12-30T00:00:00.000000Z'
         injected_state_by_stream = {
-            'ad_group_performance_report': data_set_state_value_1,
             'geo_performance_report': data_set_state_value_1,
             'gender_performance_report': data_set_state_value_1,
             'placeholder_feed_item_report': data_set_state_value_2,
