@@ -185,16 +185,6 @@ class GoogleAdsBase(unittest.TestCase):
             # These are fields that are inherently used by Google for each respective resource to aggregate metrics
             # shopping_performance_report's automatic_keys are currently unknown, and thus are temporarily empty
 
-            "age_range_performance_report": {  # "age_range_view"
-                self.PRIMARY_KEYS: {"_sdc_record_hash"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-                self.AUTOMATIC_KEYS: {
-                    "ad_group_criterion_age_range",
-                    "ad_group_criterion_criterion_id",
-                    "ad_group_id",
-                },
-            },
             "campaign_audience_performance_report": {  # "campaign_audience_view"
                 self.PRIMARY_KEYS: {"_sdc_record_hash"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,
@@ -720,16 +710,6 @@ class GoogleAdsBase(unittest.TestCase):
                 'cost_per_conversion',  # Cost / conv.,
                 'search_term_view_search_term',
                 'search_term_match_type',
-            },
-            "age_range_performance_report": {
-                'clicks',
-                'ctr',  # CTR,
-                'impressions',  # Impr.,
-                'average_cpc',
-                'conversions',
-                'view_through_conversions',  # View-through conv.,
-                'cost_per_conversion',  # Cost / conv.,
-                'ad_group_criterion_age_range', # 'Age',
             },
             'placeholder_feed_item_report': {
                 'clicks',

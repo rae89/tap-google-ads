@@ -74,11 +74,6 @@ class GoogleAdsBase(unittest.TestCase):
                 self.REPLICATION_METHOD: self.INCREMENTAL,
                 self.REPLICATION_KEYS: {"date"},
             },
-            "AGE_RANGE_PERFORMANCE_REPORT": {
-                self.PRIMARY_KEYS: {"TODO"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-            },
             "AUDIENCE_PERFORMANCE_REPORT": {
                 self.PRIMARY_KEYS: {"TODO"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,

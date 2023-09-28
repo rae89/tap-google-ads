@@ -51,7 +51,6 @@ class InterruptedSyncTest(GoogleAdsBase):
 
         NOTE: The following streams all had records for the dates used in this test. If needed they can be used in
               testing cases like this in the future.
-                'age_range_performance_report',
                 'campaign_performance_report', 'click_performance_report', 'expanded_landing_page_report',
                 'gender_performance_report', 'geo_performance_report', 'keywordless_query_report', 'landing_page_report',
         """
