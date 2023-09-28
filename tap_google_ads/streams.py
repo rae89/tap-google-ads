@@ -959,13 +959,6 @@ def initialize_core_streams(resource_schema):
 
 def initialize_reports(resource_schema):
     return {
-        "account_performance_report": ReportStream(
-            report_definitions.ACCOUNT_PERFORMANCE_REPORT_FIELDS,
-            ["customer"],
-            resource_schema,
-            ["_sdc_record_hash"],
-            {"customer_id"},
-        ),
         "ad_group_audience_performance_report": ReportStream(
             report_definitions.AD_GROUP_AUDIENCE_PERFORMANCE_REPORT_FIELDS,
             ["ad_group_audience_view"],

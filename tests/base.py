@@ -215,12 +215,6 @@ class GoogleAdsBase(unittest.TestCase):
             # These are fields that are inherently used by Google for each respective resource to aggregate metrics
             # shopping_performance_report's automatic_keys are currently unknown, and thus are temporarily empty
 
-            "account_performance_report": { # accounts
-                self.PRIMARY_KEYS: {"_sdc_record_hash"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-                self.AUTOMATIC_KEYS: {"customer_id"},
-            },
             "ad_group_audience_performance_report": {  # ad_group_audience_view
                 self.PRIMARY_KEYS: {"_sdc_record_hash"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,
@@ -768,20 +762,6 @@ class GoogleAdsBase(unittest.TestCase):
                 'campaign_name',
                 'clicks',
                 # 'video_views',
-            },
-            # NOTE AFTER THIS POINT COULDN"T FIND IN UI
-            "account_performance_report": {
-                'average_cpc',
-                'click_type',
-                'clicks',
-                'date',
-                'customer_descriptive_name',
-                'customer_id',
-                'impressions',
-                'invalid_clicks',
-                'customer_manager',
-                'customer_test_account',
-                'customer_time_zone',
             },
             "geo_performance_report": {
                 'clicks',

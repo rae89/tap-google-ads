@@ -62,7 +62,6 @@ class InterruptedSyncTest(GoogleAdsBase):
         # ('2022-01-22T00:00:00.000000Z', '2022-01-23T00:00:00.000000Z', '2022-01-24T00:00:00.000000Z', '2022-01-25T00:00:00.000000Z')])}
         streams_under_test = {
             'ads',
-            'account_performance_report',
             'search_query_performance_report',
             'user_location_performance_report',
         }
@@ -105,7 +104,6 @@ class InterruptedSyncTest(GoogleAdsBase):
         interrupted_state = {
             'currently_syncing': ('search_query_performance_report', '5548074409'),
             'bookmarks': {
-                'account_performance_report': {'5548074409': {'date': completed_bookmark_value}},
                 'search_query_performance_report': {'5548074409': {'date': interrupted_bookmark_value}},
            },
          }

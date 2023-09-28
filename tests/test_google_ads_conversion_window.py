@@ -48,7 +48,6 @@ class ConversionWindowBaseTest(GoogleAdsBase):
 
         streams_to_test = {
             'campaigns',
-            'account_performance_report',
         }
 
         # Create a connection

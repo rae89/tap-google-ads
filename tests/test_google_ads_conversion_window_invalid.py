@@ -49,7 +49,6 @@ class ConversionWindowInvalidTest(GoogleAdsBase):
 
         streams_to_test = {
             'campaigns',
-            'account_performance_report',
         }
 
         try:

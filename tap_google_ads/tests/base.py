@@ -77,11 +77,6 @@ class GoogleAdsBase(unittest.TestCase):
                 self.REPLICATION_METHOD: self.FULL,
             },
             # Standard Reports
-            "ACCOUNT_PERFORMANCE_REPORT": {
-                self.PRIMARY_KEYS: {"TODO"},
-                self.REPLICATION_METHOD: self.INCREMENTAL,
-                self.REPLICATION_KEYS: {"date"},
-            },
             "ADGROUP_PERFORMANCE_REPORT": {
                 self.PRIMARY_KEYS: {"TODO"},
                 self.REPLICATION_METHOD: self.INCREMENTAL,
