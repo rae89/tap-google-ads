@@ -15,10 +15,9 @@ def get_service_account_credentials():
     Raises:
         ValueError: If the configuration lacks a required field.
     """
-    service_account_info_str = os.getenv("PRIVATE_KEY")
-    service_account_info = json.loads(service_account_info_str)
+    service_account_info = os.getenv("SERVICE_ACCOUNT_INFO_STRING")
     if service_account_info:
-        return service_account.Credentials.from_service_account_info(service_account_info)
+        return service_account.Credentials.from_service_account_info(json.loads(service_account_info))
     else:
         raise ValueError("SERVICE_ACCOUNT_INFO_STRING environment variable not set")
 
