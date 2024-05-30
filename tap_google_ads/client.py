@@ -2,7 +2,7 @@ import os
 import json
 from google.ads.googleads.client import GoogleAdsClient
 from google.oauth2 import service_account
-
+import ast
 
 def get_service_account_credentials():
     """
@@ -15,12 +15,12 @@ def get_service_account_credentials():
     Raises:
         ValueError: If the configuration lacks a required field.
     """
-    service_account_info = os.getenv("SERVICE_ACCOUNT_INFO_STRING")
+    service_account_info_str = os.getenv("PRIVATE_KEY")
+    service_account_info = json.loads(service_account_info_str)
     if service_account_info:
-        return service_account.Credentials.from_service_account_info(json.loads(service_account_info))
+        return service_account.Credentials.from_service_account_info(service_account_info)
     else:
         raise ValueError("SERVICE_ACCOUNT_INFO_STRING environment variable not set")
-
 
 class GoogleAdsClientServiceAccount(GoogleAdsClient):
     @classmethod
@@ -32,13 +32,13 @@ class GoogleAdsClientServiceAccount(GoogleAdsClient):
 
         Returns:
             A dict containing kwargs that will be provided to the
-            GoogleAdsClient initializer.
+            GoogleAdsClientServiceAccount initializer.
 
         Raises:
             ValueError: If the configuration lacks a required field.
         """
         return {
-            "credentials": get_service_account_credentials(config_data),
+            "credentials": get_service_account_credentials(),
             "developer_token": config_data.get("developer_token"),
             "endpoint": config_data.get("endpoint"),
             "login_customer_id": config_data.get("login_customer_id"),
@@ -60,7 +60,7 @@ def create_sdk_client(config, login_customer_id=None, auth_method=None):
         config_data: a dict containing client configuration.
 
     Returns:
-        GoogleAdsClient.
+        GoogleAdsClientServiceAccount.
     """
 
     if config.get("auth_method") == "Service_Account":
@@ -83,5 +83,5 @@ def create_sdk_client(config, login_customer_id=None, auth_method=None):
     # if login_customer_id:
         # CONFIG["login_customer_id"] = login_customer_id
 
-    sdk_client = GoogleAdsClient.load_from_dict(CONFIG)
+    sdk_client = GoogleAdsClientServiceAccount.load_from_dict(CONFIG)
     return sdk_client
