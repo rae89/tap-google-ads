@@ -1,8 +1,0 @@
-{
-    "start_date": "2024-05-29T00:00:00Z",
-    "login_customer_ids": [{"customerId": "X", "loginCustomerId": "X"}],
-    "use_proto_plus":"False",
-    "impersonated_email":"X",
-    "developer_token":"X",
-    "auth_method":"Service_Account"
-}

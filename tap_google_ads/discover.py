@@ -70,7 +70,7 @@ def get_api_objects(config):
     gaf_service = client.get_service("GoogleAdsFieldService")
 
     query = "SELECT name, category, data_type, selectable, filterable, sortable, selectable_with, metrics, segments, is_repeated, type_url, enum_values, attribute_resources"
-
+    
     api_objects = gaf_service.search_google_ads_fields(query=query)
     return api_objects
 

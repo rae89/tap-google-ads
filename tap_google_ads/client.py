@@ -1,10 +1,37 @@
 import os
 import json
+import functools
+from google.auth.transport.requests import Request
+from requests import Session
 from google.ads.googleads.client import GoogleAdsClient
 from google.oauth2 import service_account
-import ast
 
-def get_service_account_credentials():
+def _initialize_credentials_decorator(func):
+    """A decorator used to easily initialize credentials objects.
+
+    Returns:
+        An initialized credentials instance
+    """
+
+    @functools.wraps(func)
+    def initialize_credentials_wrapper(*args, **kwargs):
+        credentials = func(*args, **kwargs)
+        # If the configs contain an http_proxy, refresh credentials through the
+        # proxy URI
+        proxy = kwargs.get("http_proxy")
+        if proxy:
+            session = Session()
+            session.proxies.update({"http": proxy, "https": proxy})
+            credentials.refresh(Request(session=session))
+        else:
+            credentials.refresh(Request())
+        return credentials
+
+    return initialize_credentials_wrapper
+
+
+@_initialize_credentials_decorator
+def get_service_account_credentials(service_account_info, impersonated_email):
     """
     Converts Service Account credentials as a string.
 
@@ -15,9 +42,8 @@ def get_service_account_credentials():
     Raises:
         ValueError: If the configuration lacks a required field.
     """
-    service_account_info = os.getenv("SERVICE_ACCOUNT_INFO_STRING")
     if service_account_info:
-        return service_account.Credentials.from_service_account_info(json.loads(service_account_info))
+        return service_account.Credentials.from_service_account_info(json.loads(service_account_info), subject=impersonated_email, scopes=['https://www.googleapis.com/auth/adwords'])
     else:
         raise ValueError("SERVICE_ACCOUNT_INFO_STRING environment variable not set")
 
@@ -37,7 +63,7 @@ class GoogleAdsClientServiceAccount(GoogleAdsClient):
             ValueError: If the configuration lacks a required field.
         """
         return {
-            "credentials": get_service_account_credentials(),
+            "credentials": get_service_account_credentials(config_data.get("json_key_file_path"), config_data.get("impersonated_email")),
             "developer_token": config_data.get("developer_token"),
             "endpoint": config_data.get("endpoint"),
             "login_customer_id": config_data.get("login_customer_id"),
@@ -61,26 +87,29 @@ def create_sdk_client(config, login_customer_id=None, auth_method=None):
     Returns:
         GoogleAdsClientServiceAccount.
     """
-
+    service_account_info = os.getenv("SERVICE_ACCOUNT_INFO_STRING")
+    impersonated_email = os.getenv("GOOGLE_ADS_IMPERSONATED_EMAIL")
+    
     if config.get("auth_method") == "Service_Account":
         CONFIG = {
-            "use_proto_plus": False,
+            "use_proto_plus": config["use_proto_plus"],
             "developer_token": config["developer_token"],
-            "json_key_file_path": get_service_account_credentials(),
-            "impersonated_email": config["impersonated_email"],
+            "impersonated_email": impersonated_email,
+            "json_key_file_path": service_account_info,
+            # "login_customer_id": config["login_customer_id"],
         }
-
     else:
         CONFIG = {
-            "use_proto_plus": False,
+            "use_proto_plus": config["use_proto_plus"],
             "developer_token": config["developer_token"],
             "client_id": config["oauth_client_id"],
             "client_secret": config["oauth_client_secret"],
             "refresh_token": config["refresh_token"],
+            # "login_customer_id": config["login_customer_id"],
         }
 
-    # if login_customer_id:
-        # CONFIG["login_customer_id"] = login_customer_id
+    if login_customer_id:
+        CONFIG["login_customer_id"] = login_customer_id
 
     sdk_client = GoogleAdsClientServiceAccount.load_from_dict(CONFIG)
     return sdk_client

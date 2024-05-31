@@ -12,8 +12,8 @@ LOGGER = singer.get_logger()
 
 REQUIRED_CONFIG_KEYS = [
     "start_date",
-    "impersonated_email",
     "developer_token",
+    "impersonated_email",
     "auth_method"
 ]
 
