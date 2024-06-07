@@ -4,5 +4,8 @@
     "oauth_client_id":"client_id",
     "oauth_client_secret":"client_secret",
     "refresh_token":"refresh_token",
-    "developer_token":"developer_token"
+    "developer_token":"developer_token",
+    "use_proto_plus":"False",
+    "impersonated_email":"impersonated_email",
+    "auth_method":"Service_Account"
 }

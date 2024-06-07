@@ -53,6 +53,14 @@ The Google Ads API supports the `start_date` and `end_date` parameters that limi
 
 This tap requires a `config.json` which specifies details regarding [OAuth 2.0](https://developers.google.com/google-ads/api/docs/oauth/overview) authentication and a cutoff date for syncing historical data. See [config.sample.json](config.sample.json) for an example.
 
+To use Developer Authentication, you will need the oauth_client_id, oauth_client_secret, and refresh_token.
+
+For Service Account Authentication, you will need the impersonated_email and must set auth_method to "Service_Account". Ensure you have the environmental variable, GOOGLE_ADS_SERVICE_ACCOUNT_INFO_STRING, which is a string of the JSON Key File value (not the file path). Providing credentials through an environment variable is useful when saving the [json_key_file_path.json file](https://developers.google.com/google-ads/api/docs/client-libs/python/oauth-service) to the filesystem in the runtime environment is not feasible. It does not impact existing functionality if this variable is not set; it falls back to the default authentication mechanism.
+
+You can find more details on Service Accounts [here](https://developers.google.com/google-ads/api/docs/oauth/service-accounts#setting_up_service_account_access).
+
+Regardless of the authentication method, the fields start_date, developer_token, and use_proto_plus are also required.
+
 To run the discover mode of `tap-google-ads` with the configuration file, use this command:
 
 ```bash
