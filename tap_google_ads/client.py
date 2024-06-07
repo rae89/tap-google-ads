@@ -10,8 +10,6 @@ from google.ads.googleads import oauth2
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.oauth2 import _initialize_credentials_decorator, get_credentials
 
-service_auth_method = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT").lower() == "true"
-
 @_initialize_credentials_decorator
 def get_service_account_credentials(service_account_info, impersonated_email):
     """
@@ -39,8 +37,8 @@ class GoogleAdsClientServiceAccountInfo(GoogleAdsClient):
         Raises:
             ValueError: If the configuration lacks a required field.
         """
-        if service_auth_method == True:
-            credentials = get_service_account_credentials(config_data.get("json_key_file_path"), config_data.get("impersonated_email"))
+        if config_data.get("json_key_string"):
+            credentials = get_service_account_credentials(config_data.get("json_key_string"), config_data.get("impersonated_email"))
         else:
             credentials = oauth2.get_credentials(config_data)
         
@@ -66,16 +64,15 @@ def create_sdk_client(config, login_customer_id=None, service_auth_method=False)
     Returns:
         GoogleAdsClientServiceAccount.
     """
+    service_account_info = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT_INFO_STRING")
+    impersonated_email = os.getenv("GOOGLE_ADS_IMPERSONATED_EMAIL")
 
-    if service_auth_method == True:
-        service_account_info = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT_INFO_STRING")
-        impersonated_email = os.getenv("GOOGLE_ADS_IMPERSONATED_EMAIL")
-
+    if service_account_info is not None:
         CONFIG = {
             "use_proto_plus": config["use_proto_plus"],
             "developer_token": config["developer_token"],
             "impersonated_email": impersonated_email,
-            "json_key_file_path": service_account_info,
+            "json_key_string": service_account_info,
         }
     else:
         CONFIG = {

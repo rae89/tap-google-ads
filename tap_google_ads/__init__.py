@@ -9,6 +9,7 @@ import os
 
 LOGGER = singer.get_logger()
 
+service_account_info = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT_INFO_STRING")
 
 REQUIRED_CONFIG_KEYS = [
     "start_date",
@@ -17,10 +18,9 @@ REQUIRED_CONFIG_KEYS = [
 ]
 
 ADDDITIONAL_CONFIG_KEYS = []
-service_auth_method = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT").lower() == "true"
 
 def auth_method_config_keys(config):
-    if service_auth_method == True:
+    if service_account_info is not None:
         ADDDITIONAL_CONFIG_KEYS = [
             "impersonated_email"
         ]
