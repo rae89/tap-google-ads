@@ -21,7 +21,6 @@ ADDDITIONAL_CONFIG_KEYS = []
 def auth_method_config_keys(config):
     if "auth_method" in config and config["auth_method"] == 'Service_Account':
         ADDDITIONAL_CONFIG_KEYS = [
-            "developer_token",
             "impersonated_email"
         ]
     else:
