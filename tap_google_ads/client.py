@@ -96,7 +96,6 @@ def create_sdk_client(config, login_customer_id=None, auth_method=None):
             "client_id": config["oauth_client_id"],
             "client_secret": config["oauth_client_secret"],
             "refresh_token": config["refresh_token"],
-            "login_customer_id": config["login_customer_id"],
         }
 
     if login_customer_id:

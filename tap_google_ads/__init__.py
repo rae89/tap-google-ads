@@ -12,7 +12,7 @@ LOGGER = singer.get_logger()
 
 REQUIRED_CONFIG_KEYS = [
     "start_date",
-    "customer_ids",
+    "login_customer_ids",
     "developer_token"
 ]
 
