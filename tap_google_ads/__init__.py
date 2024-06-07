@@ -5,7 +5,7 @@ from singer import utils
 from tap_google_ads.discover import create_resource_schema
 from tap_google_ads.discover import do_discover
 from tap_google_ads.sync import do_sync
-
+import os
 
 LOGGER = singer.get_logger()
 
@@ -17,9 +17,10 @@ REQUIRED_CONFIG_KEYS = [
 ]
 
 ADDDITIONAL_CONFIG_KEYS = []
+service_auth_method = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT").lower() == "true"
 
 def auth_method_config_keys(config):
-    if "auth_method" in config and config["auth_method"] == 'Service_Account':
+    if service_auth_method == True:
         ADDDITIONAL_CONFIG_KEYS = [
             "impersonated_email"
         ]
