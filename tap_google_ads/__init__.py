@@ -20,7 +20,7 @@ REQUIRED_CONFIG_KEYS = [
 ADDDITIONAL_CONFIG_KEYS = []
 
 def auth_method_config_keys(config):
-    if service_account_info is not None:
+    if service_account_info:
         ADDDITIONAL_CONFIG_KEYS = [
             "impersonated_email"
         ]

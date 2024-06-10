@@ -67,7 +67,7 @@ def create_sdk_client(config, login_customer_id=None, service_auth_method=False)
     service_account_info = os.getenv("GOOGLE_ADS_SERVICE_ACCOUNT_INFO_STRING")
     impersonated_email = os.getenv("GOOGLE_ADS_IMPERSONATED_EMAIL")
 
-    if service_account_info is not None:
+    if service_account_info:
         CONFIG = {
             "use_proto_plus": config["use_proto_plus"],
             "developer_token": config["developer_token"],
